@@ -14,21 +14,23 @@ export default function Dashboard() {
   const [activeModule, setActiveModule] = useState('health')
 
   return (
-    <div className="min-h-screen bg-gray-900">
-      {/* Navigation */}
-      <nav className="bg-gray-800 border-b border-gray-700 p-4">
-        <div className="flex items-center gap-4">
-          <h1 className="text-xl font-bold text-white">ARCHON V7.0.0</h1>
-          <div className="flex gap-2">
+    <div style={{minHeight: '100vh', background: '#111111', color: 'white'}}>
+      <nav style={{background: '#222222', padding: '16px', borderBottom: '1px solid #333'}}>
+        <div style={{display: 'flex', alignItems: 'center', gap: '16px'}}>
+          <h1 style={{fontSize: '24px', fontWeight: 'bold'}}>ARCHON V7.0.0</h1>
+          <div style={{display: 'flex', gap: '8px'}}>
             {Object.keys(MODULES).map(module => (
               <button
                 key={module}
                 onClick={() => setActiveModule(module)}
-                className={`px-3 py-1 rounded ${
-                  activeModule === module 
-                    ? 'bg-blue-600 text-white' 
-                    : 'bg-gray-700 text-gray-300'
-                }`}
+                style={{
+                  padding: '8px 16px',
+                  borderRadius: '4px',
+                  border: 'none',
+                  background: activeModule === module ? '#0070f3' : '#373737',
+                  color: 'white',
+                  cursor: 'pointer'
+                }}
               >
                 {module.charAt(0).toUpperCase() + module.slice(1)}
               </button>
@@ -37,11 +39,10 @@ export default function Dashboard() {
         </div>
       </nav>
 
-      {/* Module Container */}
-      <div className="h-[calc(100vh-80px)]">
+      <div style={{height: 'calc(100vh - 80px)'}}>
         <iframe
           src={MODULES[activeModule]}
-          className="w-full h-full border-0"
+          style={{width: '100%', height: '100%', border: 'none'}}
           title={`ARCHON ${activeModule} Module`}
         />
       </div>
