@@ -5,8 +5,9 @@ export default function Home() {
       <p>Micro-Frontend Architecture</p>
       <ul>
         <li><a href="https://health.selfarchitectai.com">Health Monitor</a></li>
+        <li><a href="https://rag5.selfarchitectai.com">RAG-5 Layer</a></li>
         <li><a href="https://telemetry.selfarchitectai.com">Telemetry</a></li>
       </ul>
     </div>
-  );
+  ;
 }
